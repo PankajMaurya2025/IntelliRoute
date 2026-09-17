@@ -36,7 +36,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+allow_origins=[
+    "https://intelliroute-frontend-dxdj.onrender.com",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
     return JSONResponse(
